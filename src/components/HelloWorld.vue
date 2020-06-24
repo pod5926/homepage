@@ -1,57 +1,67 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-container>
+    <v-row class="text-center">
+      <v-col class="mb-5" cols="12">
+        <v-card>
+          <v-img src="/images/home.jpg" class="mr-3" contain height="500" />
+          <v-card-text class=" display-1 font-weight-bold">
+            ポートフォリオ
+          </v-card-text>
+        </v-card>
+        <v-row dense>
+          <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+            <v-card>
+              <a :href="card.link">
+                <v-img
+                  :src="card.src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="500px"
+                  :href="card.link"
+                >
+                  <v-card-title v-text="card.title"></v-card-title>
+                  <v-card-text v-text="card.tag" class="subtitle-1"> </v-card-text>
+                  <v-card-text v-text="card.subtext" class="body-1"> </v-card-text>
+                </v-img>
+              </a>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+
+  data: () => ({
+    cards: [
+      {
+        title: 'TaskSlider',
+        tag: 'Vue.js + Firebase + Vuetify',
+        src: '/images/task.jpg',
+        link: 'https://fir-test-2503c.web.app/',
+        subtext: 'ポモドーロタイマー付きタスク管理アプリ',
+        flex: 6
+      },
+      {
+        title: 'Boober',
+        tag: 'Ruby on Rails + Bootstrap4 + aws',
+        src: '/images/book.jpg',
+        link: 'https://boober-iyefvtwh-27069184.herokuapp.com/',
+        subtext: '書籍感想アプリ',
+        flex: 6
+      },
+      {
+        title: 'Github',
+        src: '/images/git.jpg',
+        link: 'https://github.com/pod5926',
+        subtext: '',
+        flex: 12
+      }
+    ]
+  })
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

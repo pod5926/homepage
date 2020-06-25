@@ -1,28 +1,23 @@
 <template>
   <v-app>
     <v-app-bar app color="dark" dark>
-      <v-toolbar-title class="ml-5">Shogo-Portfolio</v-toolbar-title>
-      <v-btn class="ml-3">Profile</v-btn>
+      <v-toolbar-title class="ml-5">Salty lychee</v-toolbar-title>
+      <v-btn class="ml-3" to="/">portfolio</v-btn>
+      <v-btn class="ml-3" to="/about">about</v-btn>
     </v-app-bar>
 
-    <v-content>
-      <Home />
-    </v-content>
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
-<script>
-import Home from './components/Home'
-
-export default {
-  name: 'App',
-
-  components: {
-    Home
-  },
-
-  data: () => ({
-    //
-  })
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
-</script>
+</style>

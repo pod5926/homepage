@@ -2,28 +2,31 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-5" cols="12">
-        <!-- <v-card>
-          <v-img src="/images/home.jpg" class="mr-3" contain height="500" />
-          <v-card-text class=" display-1 font-weight-bold">
-            ポートフォリオ
-          </v-card-text>
-        </v-card> -->
         <v-row dense>
           <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-            <v-card hover>
-              <a :href="card.link">
-                <v-img
-                  :src="card.src"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="500px"
-                  :href="card.link"
-                >
-                  <v-card-title v-text="card.title" :class="card.class"></v-card-title>
-                  <v-card-text v-text="card.tag" class="subtitle-1"> </v-card-text>
-                  <v-card-text v-text="card.subtext" class="body-1"> </v-card-text>
-                </v-img>
-              </a>
+            <v-card>
+              <v-img
+                :src="card.src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.4)"
+                height="500px"
+              >
+                <v-card-title v-text="card.title" :class="card.class"></v-card-title>
+              </v-img>
+              <template v-if="card.tag">
+                <v-btn icon @click="card.show = !card.show">
+                  <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                </v-btn>
+              </template>
+              <v-expand-transition>
+                <div v-show="card.show">
+                  <v-divider></v-divider>
+                  <v-card-text v-if="card.link !== ''" :class="card.class"
+                    ><a :href="card.link">Go Github</a></v-card-text
+                  >
+                  <v-card-text v-else class="text-justify" v-html="card.subtext"></v-card-text>
+                </div>
+              </v-expand-transition>
             </v-card>
           </v-col>
         </v-row>
@@ -40,38 +43,31 @@ export default {
     cards: [
       {
         class: 'display-2 font-weight-bold ml-5',
-        title: 'ポートフォリオ',
-        tag: '',
-        src: '/images/home.jpg',
-        link: 'https://fir-test-2503c.web.app/',
-        subtext: '',
+        title: 'プロフィール',
+        tag: false,
+        src: '/images/profile.jpg',
+
         flex: 12
       },
       {
-        class: 'display-1 ml-5',
-        title: 'TaskSlider',
-        tag: 'Vue.js + Firebase + Vuetify',
-        src: '/images/task.jpg',
-        link: 'https://fir-test-2503c.web.app/',
-        subtext: 'ポモドーロタイマー付きタスク管理アプリ',
-        flex: 6
-      },
-      {
-        class: 'display-1 ml-5',
-        title: 'Boober',
-        tag: 'Ruby on Rails + Bootstrap4 + aws',
-        src: '/images/book.jpg',
-        link: 'https://boober-iyefvtwh-27069184.herokuapp.com/',
-        subtext: '書籍感想アプリ',
+        class: 'display-1 font-weight-bold ml-5',
+        title: '自己PR',
+        tag: true,
+        src: '/images/menu.jpg',
+        subtext:
+          '■自己ＰＲ<br>・達成意欲<br>プログラミングの経験、基礎知識がない状態で入学し、理解ができないことが多々ありましたが、自宅で開発環境を作成し、復習、参考書を活用した自己学習のおかげで、クラス内で上位をキープすることができました。また、学校で学んだ知識をベースに、自宅ではRuby、Ruby on Rails、HTML、CSSの勉強を毎日2時間継続して取り組み、自作のWEBアプリケーションを作成するなど積極的なスキルアップに取り組みました。<br><br>3月よりProgate,UdemyにてPHP,Laravelの学習。<br>6月よりUdemy教材「超Vue.js 2 完全パック - もう他の教材は買わなくてOK！ <br>(Vue Router, Vuex含む)」修了<br><br>・コミュニケーション能力<br>訓練校の卒業制作では、JSP + Java + Servlet + DB を利用したECサイトをウォーターフォール型開発で経験し、チームリーダーとして制作の進捗管理、指示しました。<br>接客業での経験をいかし、硬い空気にならないよう、積極的にチームメンバーとの情報共有、コミュニケーションを心がけました。',
+        link: '',
+        show: false,
         flex: 6
       },
       {
         class: 'display-1 ml-5',
         title: 'Github',
+        tag: true,
         src: '/images/git.jpg',
         link: 'https://github.com/pod5926',
-        subtext: '',
-        flex: 12
+        show: false,
+        flex: 6
       }
     ]
   })

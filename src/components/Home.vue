@@ -2,15 +2,15 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-5" cols="12">
-        <v-card>
+        <!-- <v-card>
           <v-img src="/images/home.jpg" class="mr-3" contain height="500" />
           <v-card-text class=" display-1 font-weight-bold">
             ポートフォリオ
           </v-card-text>
-        </v-card>
+        </v-card> -->
         <v-row dense>
           <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-            <v-card>
+            <v-card hover>
               <a :href="card.link">
                 <v-img
                   :src="card.src"
@@ -19,7 +19,7 @@
                   height="500px"
                   :href="card.link"
                 >
-                  <v-card-title v-text="card.title"></v-card-title>
+                  <v-card-title v-text="card.title" :class="card.class"></v-card-title>
                   <v-card-text v-text="card.tag" class="subtitle-1"> </v-card-text>
                   <v-card-text v-text="card.subtext" class="body-1"> </v-card-text>
                 </v-img>
@@ -39,6 +39,16 @@ export default {
   data: () => ({
     cards: [
       {
+        class: 'display-2 font-weight-bold ml-5',
+        title: 'ポートフォリオ',
+        tag: '',
+        src: '/images/home.jpg',
+        link: 'https://fir-test-2503c.web.app/',
+        subtext: '',
+        flex: 12
+      },
+      {
+        class: 'display-1 ml-5',
         title: 'TaskSlider',
         tag: 'Vue.js + Firebase + Vuetify',
         src: '/images/task.jpg',
@@ -47,6 +57,7 @@ export default {
         flex: 6
       },
       {
+        class: 'display-1 ml-5',
         title: 'Boober',
         tag: 'Ruby on Rails + Bootstrap4 + aws',
         src: '/images/book.jpg',
@@ -55,6 +66,7 @@ export default {
         flex: 6
       },
       {
+        class: 'display-1 ml-5',
         title: 'Github',
         src: '/images/git.jpg',
         link: 'https://github.com/pod5926',

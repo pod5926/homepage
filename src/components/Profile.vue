@@ -1,73 +1,31 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="12">
-        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200" />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-col>
-
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
+        <!-- <v-card>
+          <v-img src="/images/home.jpg" class="mr-3" contain height="500" />
+          <v-card-text class=" display-1 font-weight-bold">
+            ポートフォリオ
+          </v-card-text>
+        </v-card> -->
+        <v-row dense>
+          <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+            <v-card hover>
+              <a :href="card.link">
+                <v-img
+                  :src="card.src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="500px"
+                  :href="card.link"
+                >
+                  <v-card-title v-text="card.title" :class="card.class"></v-card-title>
+                  <v-card-text v-text="card.tag" class="subtitle-1"> </v-card-text>
+                  <v-card-text v-text="card.subtext" class="body-1"> </v-card-text>
+                </v-img>
+              </a>
+            </v-card>
+          </v-col>
         </v-row>
       </v-col>
     </v-row>
@@ -79,54 +37,41 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
-    ecosystem: [
+    cards: [
       {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader'
+        class: 'display-2 font-weight-bold ml-5',
+        title: 'ポートフォリオ',
+        tag: '',
+        src: '/images/home.jpg',
+        link: 'https://fir-test-2503c.web.app/',
+        subtext: '',
+        flex: 12
       },
       {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify'
+        class: 'display-1 ml-5',
+        title: 'TaskSlider',
+        tag: 'Vue.js + Firebase + Vuetify',
+        src: '/images/task.jpg',
+        link: 'https://fir-test-2503c.web.app/',
+        subtext: 'ポモドーロタイマー付きタスク管理アプリ',
+        flex: 6
       },
       {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify'
-      }
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com'
+        class: 'display-1 ml-5',
+        title: 'Boober',
+        tag: 'Ruby on Rails + Bootstrap4 + aws',
+        src: '/images/book.jpg',
+        link: 'https://boober-iyefvtwh-27069184.herokuapp.com/',
+        subtext: '書籍感想アプリ',
+        flex: 6
       },
       {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com'
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify'
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs'
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify'
-      }
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer'
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/getting-started/pre-made-layouts'
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
+        class: 'display-1 ml-5',
+        title: 'Github',
+        src: '/images/git.jpg',
+        link: 'https://github.com/pod5926',
+        subtext: '',
+        flex: 12
       }
     ]
   })

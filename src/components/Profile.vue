@@ -4,19 +4,20 @@
       <v-col class="mb-5" cols="12">
         <v-row dense>
           <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-            <v-card>
+            <v-card :disabled="card.subtext !== '' ? false : true" outlined elevation="14" shaped>
               <v-img
                 :src="card.src"
                 :lazy-src="card.src"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.4)"
                 height="500px"
+                @click="show(card)"
               >
                 <v-card-title v-text="card.title" :class="card.class"></v-card-title>
               </v-img>
               <template v-if="card.tag">
                 <v-btn icon @click="card.show = !card.show">
-                  <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                  <v-icon>{{ card.show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
                 </v-btn>
               </template>
               <v-expand-transition>
@@ -35,7 +36,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Profile',
 
   data: () => ({
     cards: [
@@ -44,7 +45,8 @@ export default {
         title: 'プロフィール',
         tag: false,
         src: '/images/profile.jpg',
-
+        subtext: '',
+        show: false,
         flex: 12
       },
       {
@@ -53,7 +55,7 @@ export default {
         tag: true,
         src: '/images/pr.jpg',
         subtext:
-          '■達成意欲<br>プログラミングの経験、基礎知識がない状態で入学し、理解ができないことが多々ありましたが、自宅で開発環境を作成し、復習、参考書を活用した自己学習のおかげで、クラス内で上位をキープすることができました。<br>訓練校で学んだ知識をベースに、自宅ではRuby、Ruby on Rails、HTML、CSSの勉強を毎日2時間継続して取り組み、自作のWEBアプリケーションを作成するなど積極的なスキルアップに取り組みました。<br><br>3月よりProgate,UdemyにてPHP,Laravelの学習。<br>6月よりUdemy教材「超Vue.js 2 完全パック - もう他の教材は買わなくてOK！ <br>(Vue Router, Vuex含む)」修了<br><br>■コミュニケーション能力<br>訓練校の卒業制作では、JSP + Java + Servlet + DB を利用したECサイトをウォーターフォール型開発で経験し、チームリーダーとして制作の進捗管理、指示しました。<br>接客業での経験をいかし、硬い空気にならないよう、積極的にチームメンバーとの情報共有、コミュニケーションを心がけました。',
+          '■達成意欲<br>プログラミングの経験、基礎知識がない状態で入学し、理解ができないことが多々ありましたが、「食らいつく」決意のもと、自宅で開発環境を作成し、復習、参考書を活用した自己学習のおかげで、クラス内で上位をキープすることができました。<br>訓練校で学んだ知識をベースに、自宅ではRuby、Ruby on Rails、HTML、CSSの勉強を毎日2時間継続して取り組み、自作のWEBアプリケーションを作成するなど積極的なスキルアップに取り組みました。<br><br>3月よりProgate,UdemyにてPHP,Laravelの学習。<br>6月よりUdemy教材「超Vue.js 2 完全パック - もう他の教材は買わなくてOK！ <br>(Vue Router, Vuex含む)」修了<br><br>■コミュニケーション能力<br>訓練校の卒業制作では、JSP + Java + Servlet + DB を利用したECサイトをウォーターフォール型開発で経験し、チームリーダーとして制作の進捗管理、指示しました。<br>接客業での経験をいかし、硬い空気にならないよう、積極的にチームメンバーとの情報共有、コミュニケーションを心がけました。',
         link: '',
         show: false,
         flex: 6
@@ -70,6 +72,11 @@ export default {
         flex: 6
       }
     ]
-  })
+  }),
+  methods: {
+    show(card) {
+      card.show = !card.show
+    }
+  }
 }
 </script>

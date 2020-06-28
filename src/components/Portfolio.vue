@@ -4,7 +4,7 @@
       <v-col class="mb-5" cols="12">
         <v-row dense>
           <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-            <v-card hover>
+            <v-card :disabled="card.link !== '' ? false : true" outlined elevation="14" shaped>
               <a :href="card.link">
                 <v-img
                   :src="card.src"
@@ -29,16 +29,16 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Portfolio',
 
   data: () => ({
     cards: [
       {
-        class: 'display-2 font-weight-bold ml-5',
+        class: 'display-2 font-weight-bold ml-5 disabled',
         title: 'ポートフォリオ',
         tag: '',
         src: '/images/home.jpg',
-        link: 'https://fir-test-2503c.web.app/',
+        link: '',
         subtext: '',
         flex: 12
       },

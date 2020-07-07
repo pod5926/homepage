@@ -55,7 +55,7 @@ export default {
         tag: true,
         src: '/images/pr.jpg',
         subtext:
-          '■達成意欲<br>プログラミングの経験、基礎知識がない状態で入学し、理解ができないことが多々ありましたが、「食らいつく」決意のもと、自宅で開発環境を作成し、復習、参考書を活用した自己学習のおかげで、クラス内で上位をキープすることができました。<br>訓練校で学んだ知識をベースに、自宅ではRuby、Ruby on Rails、HTML、CSSの勉強を毎日2時間継続して取り組み、自作のWEBアプリケーションを作成するなど積極的なスキルアップに取り組みました。<br><br>3月よりProgate,UdemyにてPHP,Laravelの学習。<br>6月よりUdemy教材「超Vue.js 2 完全パック - もう他の教材は買わなくてOK！ <br>(Vue Router, Vuex含む)」修了<br><br>■コミュニケーション能力<br>訓練校の卒業制作では、JSP + Java + Servlet + DB を利用したECサイトをウォーターフォール型開発で経験し、チームリーダーとして制作の進捗管理、指示しました。<br>接客業での経験をいかし、硬い空気にならないよう、積極的にチームメンバーとの情報共有、コミュニケーションを心がけました。',
+          '■達成意欲<br>プログラミングの経験、基礎知識がない状態で入学し、理解ができないことが多々ありましたが、「食らいつく」決意のもと、自宅で開発環境を作成し、復習、参考書を活用した自己学習のおかげで、クラス内で上位で卒業することができました。<br>訓練校で学んだ知識をベースに、自宅ではRuby、Ruby on Rails、HTML、CSSの勉強を毎日2時間継続して取り組み、自作のWEBアプリケーションを作成するなど積極的なスキルアップに取り組みました。<br><br>3月よりProgate,UdemyにてPHP,Laravelの学習。<br>6月よりUdemy教材「超Vue.js 2 完全パック - もう他の教材は買わなくてOK！(Vue Router, Vuex含む)」修了<br>7月よりUdemy教材「超TypeScript入門 完全パック(2020) - もう他の教材は買わなくてOK！」開始<br><br>■コミュニケーション能力<br>訓練校の卒業制作では、JSP + Java + Servlet + DB を利用したECサイトをウォーターフォール型開発で経験し、チームリーダーとして制作の進捗管理、指示しました。<br>接客業での経験をいかし、硬い空気にならないよう、積極的にチームメンバーとの情報共有、コミュニケーションを心がけました。',
         link: '',
         show: false,
         flex: 6
@@ -66,7 +66,7 @@ export default {
         tag: true,
         src: '/images/git.jpg',
         subtext:
-          '■東京都立城南職業能力開発センター<br>・Java,JSP<br>・DB,Oracle<br>・C<br>・HTML<br>・CSS<br><br>■独学<br>・Ruby,Ruby on Rails<br>・PHP,Laravel<br>・JavaScript,Vue.js<br>・DB,MySQL,Firestore<br><br>',
+          '■東京都立城南職業能力開発センター<br>・Java, JSP<br>・C<br>・DB, Oracle<br>・HTML<br>・CSS<br>・Word<br>・EXCEL<br><br>■独学<br>・Ruby, Ruby on Rails<br>・PHP, Laravel<br>・JavaScript, Vue.js, Typescript<br>・フロントフレームワーク、Bootstrap 4, Vuetify<br>・DB, MySQL, Firestore<br><br>',
         link: 'https://github.com/pod5926',
         show: false,
         flex: 6
